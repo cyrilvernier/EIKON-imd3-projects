@@ -1,0 +1,41 @@
+{
+  "name": "eikon-imd3-projects-homepage",
+  "version": "1.0.0",
+  "description": "Homepage for eikon students projects",
+  "scripts": {
+    "clean:output": "rimraf dist",
+    "clean:cache": "rimraf dist",
+    "dev": "npm run clean:cache && parcel src/index.html",
+    "build": "npm run clean:output && parcel build src/index.html --public-url '.' --no-cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:cyrilvernier/EIKON-imd3-projects.git"
+  },
+  "author": "@cyrilvernier",
+  "license": "ISC",
+  "homepage": "https://github.com/cyrilvernier/EIKON-imd3-projects",
+  "parcel-namer-rewrite": {
+    "rules": {
+      "(.*)\\.(css)": "css/$1{.hash}.$2",
+      "(.*)\\.(js)": "js/$1{.hash}.$2",
+      "(.*)\\.(woff|woff2?)": "fonts/$1.$2",
+      "(.*)\\.(mp4|ogg|webm)": "video/$1.$2",
+      "(.*)\\.(mp3)": "audio/$1.$2",
+      "(.*)\\.(svg|png|gif|jp?g|webp|avif)": "img/$1{.hash}.$2"
+    },
+    "silent": true,
+    "development": {
+      "disable": false
+    }
+  },
+  "devDependencies": {
+    "parcel": "^2.10.2",
+    "parcel-namer-rewrite": "^2.10.3-rc.2",
+    "postcss": "^8.4.31",
+    "posthtml-include": "^1.7.1",
+    "rimraf": "^3.0.2",
+    "sass": "^1.69.5",
+    "tailwindcss": "^3.3.6"
+  }
+}
